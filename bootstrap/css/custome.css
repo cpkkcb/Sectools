@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+#myTabs {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+    color: #333;
+}
+
+h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer; /* 新增：更改鼠标样式为手形 */
+    transition: all 0.3s ease;
+}
+
+.link-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #0275d8;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0256c8;
+}
+
+.delay {
+    margin-top: 0;
+    color: #888;
+    font-size: 16px;
+    color: green; /* 设置文字颜色为绿色 */
+}
+/*在线杀软对比布局css*/
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+/* 文本去重悬浮窗样式 */
+#infoBox {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    left: 0; /* 靠左对齐 */
+    top: 10px; /* 与按钮的顶部对齐 */
+    margin-left: 20px; /* 左侧的边距，保持与按钮的距离 */
+}
+/* 开始去重按钮的样式 */
+#textDealBtn {
+    margin-right: 20px; /* 右侧的边距，保持与悬浮窗的距离 */
+}
+
+/*随机密码按钮样式美化*/
+/* 自定义按钮样式和悬浮提示样式 */
+  /* 自定义按钮样式 */
+  .custom-btn {
+    padding: 10px 20px; /* 调整按钮内边距 */
+    font-size: 16px; /* 调整字体大小 */
+    border-radius: 5px; /* 圆角边框 */
+  }
+
+  /* 自定义生成密码按钮样式 */
+  .custom-btn-generate {
+    background-color: #007bff; /* 蓝色背景 */
+    color: #fff; /* 白色文字 */
+    margin-right: 10px; /* 右边距 */
+    margin-top: 50px;
+
+  }
+
+  /* 自定义复制按钮样式 */
+  .custom-btn-copy {
+    background-color: #007bff;; /* 黄色背景 */
+    color: #fff; /* 白色文字 */
+    margin-top: 50px;
+  }
+
+  /* 水平居中对齐 */
+  .centered-buttons {
+    text-align: center;
+  }
+  /* 自定义悬浮提示样式 */
+  .copy-success-tooltip {
+    position: absolute;
+    background-color: #28a745; /* 绿色背景 */
+    color: #fff; /* 白色文字 */
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 9999;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+ /*自定义生成密码结果样式*/ 
+  #ranoutput {
+    font-size: 24px; /* 调整字体大小 */
+    background-color: #28a745; /* 绿色背景 */
+    color: #fff; /* 白色文字 */
+    margin-top: 50px;
+    padding: 20px 10px;
+    border-radius: 5px;
+  }
+  #results {
+    display: flex; /* 使用弹性布局 */
+    flex-direction: column; /* 子元素垂直排列 */
+    align-items: center; /* 子元素居中对齐 */
+    width: 100%; /* 结果容器的宽度 */
+}
+
+#results p {
+    width: 50%; /* 设置每个结果的宽度为容器的 50% */
+    max-width: 600px; /* 和输入框一样的最大宽度 */
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#results p:hover {
+    background-color: #e9ecef;
+}
+.form-group {
+  display: flex; /* 使用弹性盒子布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+
+#website {
+  width: 50%; /* 设置输入框宽度为容器的 50% */
+  max-width: 600px; /* 可以设置一个最大宽度，以防在大屏幕上过宽 */
+  margin: auto; /* 自动外边距实现居中 */
+}

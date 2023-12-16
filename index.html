@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>在线安全工具</title>
+    <!--引入bootstrap样式文件-->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap/css/custome.css" rel="stylesheet">
+    <script type="text/javascript" src="./model/decode.js"></script>
+    <script type="application/javascript" src="./bootstrap/js/jquery.js"></script>
+    <script type="application/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./model/decode.js"></script>
+    <script src="./model/ipDeal.js"></script>
+    <script src="./model/shell.js"></script>
+    <script src="./model/textDeal.js"></script>
+    <script src="./model/ranpass.js"></script>
+
+
+</head>
+
+<body style="margin: 60px">
+
+    <div class="tab-nav-main">
+        <ul id="myTabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a role="tab" data-toggle="tab" href="#chatgpt">ChatGPT</a></li>
+            <li role="presentation"><a role="tab" data-toggle="tab" href="#ip">IP提取</a></li>
+            <li role="presentation"><a role="tab" data-toggle="tab" href="#code">常见编码</a></li>
+            <li role="presentation"><a role="tab" data-toggle="tab" href="#googlehacking">谷歌语法</a></li>
+            <li role="presentation"><a role="tab" data-toggle="tab" href="#textDeal">文本去重</a></li>
+            <li role="presentation"><a role="tab" data-toggle="tab" href="#ranPass">随机密码</a></li>
+            <li role="presentation"><a role="tab"data-toggle="tab" href="#java">JAVA命令执行</a></li>
+            <li role="presentation"><a role="tab" data-toggle="tab" href="#shell">SHELL命令反弹</a></li>
+            <li role="presentation"><a role="tab" data-toggle="tab" href="#avlist">简易杀软识别</a></li>
+        </ul>
+        <div id="tab-content" class="tab-content">
+            <div role="tabpanel" class="tab-pane" id="java">
+                <br>
+                <h6>下面的转换器可以帮助减少执行有效负载Runtime.getRuntime().exec()无法执行等问题。它可以通过调用Bash或PowerShell再次使管道和重定向更好，并且还确保参数中没有空格。
+                </h6>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="input_radio" value="Bash" checked=""> Bash
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="input_radio" value="PowerShell"> PowerShell
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="input_radio" value="Python"> Python
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="input_radio" value="Perl"> Perl
+                </label>
+                <br><br>
+                <textarea class="form-control" rows="6" placeholder="这里输入要执行的命令..." id="command"></textarea><br>
+                <textarea class="form-control" rows="3" readonly="" id="showcode"></textarea>
+                <script type="text/javascript" src="./model/javaCommand.js"></script>
+            </div>
+        <!--IP去重-->
+            <div role="tabpanel" class="tab-pane fade" id="ip">
+                <div class="mainrightn">
+                    <div class="maintop" style="margin-top: 10px; display: flex; align-items: center; justify-content: space-between;">
+                        <span id="keyword" class="maintopchk">
+                            <input id="exceptIP" class="singleline5" placeholder="IP不包含（用逗号分隔）" type="text">
+                            <input id="Checkbox3" type="checkbox" checked="checked" onchange="regoutput()">去除重复IP
+                        </span>
+                        <input id="Button1" type="button" value="开始提取" class="btn02 btn btn-primary" onclick="regoutput(6)">
+                    </div>
+                    <div id="gettxt" class="maindown" style="margin-top: 10px;">
+                        <div id="originIP" class="urright5"><textarea id="TextArea1" class="regtxt form-control"
+                                rows="6" placeholder="请粘贴要提取的文本,一行一个"></textarea></div>
+                        <div id="resultIP" class="urleft5"><textarea id="TextArea2"
+                                style="margin-top:20px; height: 200px; overflow-y: scroll;" class="regval form-control"
+                                readonly=""></textarea></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        <!--谷歌语法-->
+        <div role="tabpanel" class="tab-pane fade" id="googlehacking">
+            <h1>Google 搜索语法生成器</h1>
+                <div class="form-group">
+                    <input placeholder="输入域名后回车或点击成成按钮即可展示结果" type="text" id="website" name="website" class="form-control" width="50%"/>
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary">生成搜索语法</button>
+            <div id="results" class="mt-3"></div>
+
+        </div>
+        
+
+
+            <div role="tabpanel" class="tab-pane fade" id="code">
+                <div class="mainrightn">
+                    <div class="maintop" style="margin-top:10px;">
+                        <input id="B1" type="button" value="Base64编码" class="btn btn-primary" onclick="ebase()" />
+                        <input id="B2" type="button" value="Base64解码" class="btn btn-primary" onclick="dbase()" />
+                        <input id="B3" type="button" value="URL编码" class="btn btn-primary" onclick="eurl()" />
+                        <input id="B4" type="button" value="URL解码" class="btn btn-primary" onclick="durl()" />
+                        <input id="B5" type="button" value="ASCII转字符" class="btn btn-primary" onclick="asc()" />
+                        <input id="B6" type="button" value="字符转ASCII" class="btn btn-primary" onclick="num()" />
+                    </div>
+                    <div id="gettxt" class="maindown" style="margin-top: 10px;">
+                        <div id="rtval" class="urright5"><textarea id="T1" class="regtxt form-control" rows="6"
+                                placeholder="请粘贴要转换的文本，使用空格或换行间隔"></textarea></div>
+                        <div id="txtlist" class="urleft5"><textarea id="T2" style="margin-top:20px;"
+                                class="regval form-control" readonly="" rows="6"></textarea></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="shell">
+                <div class="mainrightn" style="margin-top: 15px;">
+                    服务器地址：<input id="addr" /> 服务器端口：<input id="port" /><br>
+                    <div class="maintop" style="margin-top:15px;">
+                        <input id="S1" type="button" value="BASH反弹" class="btn btn-primary" onclick="bash()" />
+                        <input id="S2" type="button" value="NC反弹" class="btn btn-primary" onclick="nc()" />
+                        <input id="S3" type="button" value="PYTHON反弹" class="btn btn-primary" onclick="python()" />
+                        <input id="S4" type="button" value="POWERSHELL反弹" class="btn btn-primary" onclick="ps()" />
+                    </div>
+                    <div id="gettxt" class="maindown" style="margin-top: 10px;">
+                        <div id="txtlist" class="urleft5"><textarea id="st2" style="margin-top:20px;"
+                                class="regval form-control" readonly="" rows="6"></textarea></div>
+
+                    </div>
+                </div>
+            </div>
+<!-- 杀毒进程查看-->
+            <div role="tabpanel" class="tab-pane fade" id="avlist">
+                <div class="mainrightn">
+                    <div class="maintop" style="margin-top:10px;">
+                        <textarea rows="10" placeholder="粘贴本地tasklist或ps -A命令执行后的结果，将自动识别杀毒软件结果
+" class="form-control" id="tasklist" style="width:100%;resize:none;"
+                            name="input_process"></textarea>
+                        <textarea rows="10" class="form-control" id="result" style="width:100%;resize:none;" name="av_process"
+                            disabled="disabled"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade  in active " id="chatgpt">
+                <div class="link-container" onclick="window.location='https://www.gnomic.cn/';">
+                    <a href="https://www.gnomic.cn/">https://www.gnomic.cn/</a>
+                    <span class="delay">延时: 7 ms</span>
+                </div>
+                				<div class="link-container" onclick="window.location='http://supercyd.familyds.com:8888';">
+                    <a href="http://supercyd.familyds.com:8888">http://supercyd.familyds.com:8888</a>
+                    <span class="delay">延时: 10 ms</span>
+                </div>
+                <div class="link-container" onclick="window.location='http://chat.nongji1958.com';">
+                    <a href="http://chat.nongji1958.com">http://chat.nongji1958.com</a>
+                    <span class="delay">延时: 70 ms</span>
+                </div>
+                <div class="link-container" onclick="window.location='http://talk.makertu.com';">
+                    <a href="http://talk.makertu.com">http://talk.makertu.com</a>
+                    <span class="delay">延时: 56 ms</span>
+                </div>
+                <div class="link-container" onclick="window.location='http://gpt-web.nuozhizhou.net';">
+                    <a href="http://gpt-web.nuozhizhou.net">http://gpt-web.nuozhizhou.net</a>
+                    <span class="delay">延时: 70 ms</span>
+                </div>
+                <div class="link-container" onclick="window.location='http://ai.meditool.cn';">
+                    <a href="http://ai.meditool.cn">http://ai.meditool.cn</a>
+                    <span class="delay">延时: 65 ms</span>
+                </div>
+                <div class="link-container" onclick="window.location='http://yftang.net:33003';">
+                    <a href="http://yftang.net:33003">http://yftang.net:33003</a>
+                    <span class="delay">延时: 33 ms</span>
+                </div>
+                  <div class="link-container" onclick="window.location='http://w5.xjai.cc/';">
+                    <a href="http://w5.xjai.cc/">http://w5.xjai.cc/</a>
+                    <span class="delay">延时: 70 ms</span>
+                </div>
+                  <div class="link-container" onclick="window.location='http://yftang.net:33003';">
+                    <a href="http://yftang.net:33003">http://supercyd.familyds.com:8888</a>
+                    <span class="delay">延时: 30 ms</span>
+                </div>
+                  <div class="link-container" onclick="window.location='http://w7.xjai.cc/';">
+                    <a href="http://w7.xjai.cc/">http://w7.xjai.cc/</a>
+                    <span class="delay">延时: 40 ms</span>
+                </div>
+                  <div class="link-container" onclick="window.location='http://w8.xjai.cc/';">
+                    <a href="http://w8.xjai.cc/">http://w8.xjai.cc/</a>
+                    <span class="delay">延时: 12 ms</span>
+                </div>
+                  <div class="link-container" onclick="window.location='http://chat.tiga.fun';">
+                    <a href="http://chat.tiga.fun">http://chat.tiga.fun</a>
+                    <span class="delay">延时: 90 ms</span>
+                </div>
+
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="textDeal">
+                <div class="mainrightn">
+                    <div class="maintop" style="margin-top: 10px; display: flex; align-items: center; justify-content: space-between;">
+                        <input id="textDealBtn" type="button" value="开始去重" class="btn02 btn btn-primary" onclick="startDeal()">
+                        <!-- 显示输入行数的悬浮窗 -->
+                        <div id="infoBox"></div>
+                    </div>
+                    <div id="originText" class="maindown" style="margin-top: 10px;">
+                        <div id="originText" class="urright5">
+                            <textarea id="originTextArea1" class="regtxt form-control"
+                                rows="6" placeholder="请粘贴要提取的文本,一行一个"></textarea>
+                        </div>
+                        <div id="resultText" class="urleft5">
+                            <textarea id="resultTextArea2"
+                                style="margin-top:20px; height: 200px; overflow-y: scroll;" class="regval form-control"
+                                readonly=""></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="ranPass">
+                <div class="mainrightn">
+                  <div class="card text-center">
+                    <div class="card-header centered-buttons">
+                      <button type="button" class="btn custom-btn custom-btn-generate" onclick="updatePassword();">
+                        <i class="fa fa-sync" aria-hidden="true"></i> 生成密码
+                      </button>
+
+                      <button type="button" class="btn custom-btn custom-btn-copy" id="copycode" onclick="copyPassword();">
+                        <i class="fa fa-copy" aria-hidden="true"></i> 复制密码
+                      </button>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title display-4 font-weight-bold text-danger">
+                        <span class="badge badge-warning" id="ranoutput">rT7IRzQ!l3V9cdKC</span>
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 悬浮提示窗口容器 -->
+            <div class="copy-success-tooltip" id="tooltip">复制成功</div>
+
+
+      <p class="text-danger font-weight-bold">
+        免责声明：本站由人工智能生成，内容来源广泛涉及网络，仅供学习交流使用，请遵守当地法律法，不要用于非法活动。
+    </p>
+
+
+
+        </div>
+    </div>
+
+    <script src="./bootstrap/js/avlist.js"></script>
+    <script src="./model/googlehacking.js"></script>
+    <script src="./bootstrap/js/checkav.js"></script>
+</body>
+
+</html>
